@@ -1,0 +1,303 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    background-color: #101530;
+}
+
+body *::selection {
+    background : transparent;
+}
+body *::-moz-selection {
+    background:transparent;
+}
+body *::-webkit-selection {
+    background:transparent;
+}
+svg *::selection {
+    background : transparent;
+}
+svg *::-moz-selection {
+    background:transparent;
+}
+svg *::-webkit-selection {
+    background:transparent;
+}
+
+rect.selection {
+    stroke: #ffffff;
+    stroke-opacity: 1;
+    fill: #ffffff;
+    fill-opacity: 0.15;
+}
+
+#title {
+    /*display: block;*/
+    left: 5%;
+    top: 5%;
+    z-index: 99;
+    position: absolute;
+}
+#title h1 {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.mark.selected {
+    fill-opacity: 1;
+}
+
+#loading {
+    transition: opacity 0.10s linear;
+    opacity: 1;
+    text-align: center;
+    width: 100px;
+    height: 40px;
+    margin-left: -20px;
+    margin-top: -50px;
+    position: absolute;
+    z-index: 99;
+    left: 50%;
+    top: 50%;
+}
+
+#map {
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+}
+#map.crosshair:hover {
+    cursor: crosshair;
+}
+#map-keys {
+    position: absolute;
+    left: 5%;
+    bottom: 5%;
+    width: 95%;
+    z-index: 99;
+}
+#map-keys > div {
+    display: block;
+    float: left;
+    width: 300px;
+}
+#map-keys.heatmap {
+    max-width: 240px;
+}
+#map-keys h2,
+#map-keys h3 {
+    font-size: 12px;
+    font-weight: 300;
+}
+#map-keys .colors,
+#map-keys .colors-heatmap, {
+    margin-top: 20px;
+}
+#map-keys .colors span,
+#map-keys .colors-heatmap span {
+    font-size: 10px;
+    border-top: 8px solid;
+    width: 70px;
+    padding-top: 8px;
+    display: block;
+    text-align: center;
+    float: left;
+}
+#map-keys .colors span.green {
+    border-top-color: #00ff00;
+}
+#map-keys .colors span.yellow {
+    border-top-color: #ffff00;
+}
+#map-keys .colors span.red {
+    border-top-color: #ff0000;
+}
+#map-keys .colors-heatmap span.red-1,
+#map-keys .colors-heatmap span.red-2,
+#map-keys .colors-heatmap span.red-3,
+#map-keys .colors-heatmap span.red-4,
+#map-keys .colors-heatmap span.red-5 {
+    width: 42px;
+}
+#map-keys .colors-heatmap span.red-1 { border-top-color: rgba(255, 0, 0, 0.2); }
+#map-keys .colors-heatmap span.red-2 { border-top-color: rgba(255, 0, 0, 0.4); }
+#map-keys .colors-heatmap span.red-3 { border-top-color: rgba(255, 0, 0, 0.6); }
+#map-keys .colors-heatmap span.red-4 { border-top-color: rgba(255, 0, 0, 0.8); }
+#map-keys .colors-heatmap span.red-5 { border-top-color: rgba(255, 0, 0, 1); }
+#map-keys .map-key-circle {
+    width: 130px;
+}
+#zoom-control {
+    z-index: 99;
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+}
+#zoom-control .zoom-in,
+#zoom-control .zoom-out {
+    cursor: pointer;
+    font-weight: 700;
+    color: #fff;
+    font-size: 22px;
+    vertical-align: middle;
+    text-align: center;
+    background-color: rgba(48, 55, 87, 1);
+    padding: 10px;
+    margin: 5px;
+}
+#zoom-control .zoom-in {
+    border-radius: 20px 20px 0 0;
+}
+#zoom-control .zoom-out {
+    border-radius: 0 0 20px 20px;
+}
+
+#instructions {
+    width: 45%;
+    max-width: 600px;
+    position: absolute;
+    font-size: 14px;
+    left: 5%;
+    top: 10%;
+    z-index: 999;
+}
+
+#graph {
+    transition: visibility 0s, opacity 0.25s linear;
+    opacity: 1;
+    text-transform: uppercase;
+    position: absolute;
+    left: 5%;
+    top: 15%;
+    width: 400px;
+    z-index: 999;
+    background-color: rgba(16, 21, 48, 0.90);
+    margin-left: -30px;
+    padding: 30px;
+}
+#graph ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#graph li {
+    font-weight: 700;
+    font-size: 12px;
+    margin: 10px 0;
+}
+#graph li .title {
+}
+#graph li .values {
+    font-weight: 300;
+    float: right;
+    text-transform: lowercase;
+}
+#graph .progress-wrapper {
+    background-color: #303757;
+    height: 8px;
+    width: 100%;
+    margin: 0;
+    border-radius: 4px;
+}
+#graph .progress {
+    transition-timing-function: cubic-bezier(0,1.26,.81,.01);
+    transition: width 0.5s;
+    background-color: #fff;
+    height: 10px;
+    width: 0%;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+@media (hover: hover) {
+    #zoom-control .zoom-in:hover,
+    #zoom-control .zoom-out:hover {
+        background-color: rgba(48, 55, 87, 0.5);
+    }
+}
+@media (hover: none), handheld, (max-width: 1250px) {
+    #graph {
+        transition: visibility 0s, opacity 0.15s linear;
+        visibility: hidden;
+        opacity: 0;
+        background-color: rgba(10, 13, 31, 0.90);
+        position: absolute;
+        width: 100%;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+    #graph .content {
+        width: 90%;
+        margin: 10% auto 0;
+    }
+}
+@media (max-width: 800px) {
+    #title {
+        top: 5%;
+    }
+    #instructions {
+        top: 13%;
+        width: 50%
+    }
+    #instructions span {
+        display: none;
+    }
+    #map-keys .map-key-circle {
+        width: 90px;
+        /*height: 30px;*/
+    }
+}
+.hide {
+    display: none;
+}
+
+.tooltip {
+    color: #000;
+    padding: 5px;
+    width: 132px;
+    height: 56px;
+    position: absolute;
+    background-color: #fff;
+    font-size: 12px;
+    border-radius: 4px;
+    box-shadow: 1px 1px 2px rgba(68, 68, 68, 0.38);
+}
+.tooltip:after, .tooltip:before {
+    top: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.tooltip:after {
+    border-top-color: #fff;
+    border-width: 5px;
+    margin-left: -5px;
+}
+.tooltip:before {
+    border-top-color: rgba(68, 68, 68, 0.38);
+    border-width: 6px;
+    margin-left: -6px;
+}
+.tooltip h4,
+.tooltip h5 {
+    font-size: 12px;
+    margin: 0 0 5px;
+}
+.tooltip span {
+    font-weight: bold;
+    font-size: 12px;
+}
+.heatmap #map path {
+    cursor: pointer;
+}

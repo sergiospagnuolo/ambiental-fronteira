@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Desmatamento Amazônia Legal</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <script src="js/d3.min.js"></script>
+  <script src="js/topojson.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,700" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+  <div id="title">
+    <h1>Desmatamento Amazônia Legal</h1>
+  </div>
+  <div id="instructions">
+    Clique e arraste para selecionar uma parte do mapa e ver a área desmatada. <span>As áreas destamadas por estado são relativas a sua área total.</span>
+  </div>
+  <div id="loading">
+    Carregando...
+  </div>
+  <div id="graph">
+    <div class="content">
+      <ul>
+        <li id="AC">
+          <div>
+            <span class="title">Acre</span>
+            <div class="values">
+              <span class="percentage">0</span>% / <span class="value">0,00</span> km&sup2;
+            </div>
+          </div>
+          <div class="progress-wrapper">
+            <div class="progress"></div>
+          </div>
+        </li>
+        <li id="AP">
+          <div>
+            <span class="title">Amapá</span>
+            <div class="values">
+              <span class="percentage">0</span>% / <span class="value">0,00</span> km&sup2;
+            </div>
+          </div>
+          <div class="progress-wrapper">
+            <div class="progress"></div>
+          </div>
+        </li>
+        <li id="AM">
+          <div>
+            <span class="title">Amazonas</span>
+            <div class="values">
+              <span class="percentage">0</span>% / <span class="value">0,00</span> km&sup2;
+            </div>
+          </div>
+          <div class="progress-wrapper">
+            <div class="progress"></div>
+          </div>
+        </li>
+        <li id="MA">
+          <div>
+            <span class="title">Maranhão</span>
+            <div class="values">
+              <span class="percentage">0</span>% / <span class="value">0,00</span> km&sup2;
+            </div>
+          </div>
+          <div class="progress-wrapper">
+            <div class="progress"></div>
+          </div>
+        </li>
+        <li id="MT">
+          <div>
+            <span class="title">Mato Grosso</span>
+            <div class="values">
+              <span class="percentage">0</span>% / <span class="value">0,00</span> km&sup2;
+            </div>
+          </div>
+          <div class="progress-wrapper">
+            <div class="progress"></div>
+          </div>
+        </li>
+        <li id="PA">
+          <div>
+            <span class="title">Pará</span>
+            <div class="values">
+              <span class="percentage">0</span>% / <span class="value">0,00</span> km&sup2;
+            </div>
+          </div>
+          <div class="progress-wrapper">
+            <div class="progress"></div>
+          </div>
+        </li>
+        <li id="RO">
+          <div>
+            <span class="title">Rondônia</span>
+            <div class="values">
+              <span class="percentage">0</span>% / <span class="value">0,00</span> km&sup2;
+            </div>
+          </div>
+          <div class="progress-wrapper">
+            <div class="progress"></div>
+          </div>
+        </li>
+        <li id="RR">
+          <div>
+            <span class="title">Roraima</span>
+            <div class="values">
+              <span class="percentage">0</span>% / <span class="value">0,00</span> km&sup2;
+            </div>
+          </div>
+          <div class="progress-wrapper">
+            <div class="progress"></div>
+          </div>
+        </li>
+        <li id="TO">
+          <div>
+            <span class="title">Tocantins</span>
+            <div class="values">
+              <span class="percentage">0</span>% / <span class="value">0,00</span> km&sup2;
+            </div>
+          </div>
+          <div class="progress-wrapper">
+            <div class="progress"></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="map-keys">
+    <div>
+      <h3>% de área de desmatamento<br>(relativa a área total de cada município)</h3>
+      <div class="colors">
+        <span class="green">0 a 20%</span>
+        <span class="yellow">20 a 50%</span>
+        <span class="red">+ 50%</span>
+      </div>
+    </div>
+    <div>
+      <h2>Área total de desmatamento (km&sup2;)</h2>
+      <div>
+        <div class="map-key-circle">
+          <img src="img/map-key.svg">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="zoom-control">
+    <div class="zoom-in">+</div>
+    <div class="zoom-out">-</div>
+  </div>
+
+  <div id="map" class="crosshair"></div>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

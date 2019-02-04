@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Desmatamento Amazônia Legal</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <script src="js/d3.min.js"></script>
+  <script src="js/topojson.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,700" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body class="heatmap">
+
+  <div id="title">
+    <h1>Áreas embargadas pelo IBAMA na Amazônia Legal</h1>
+  </div>
+  <div id="instructions">
+    Passe o mouse em cima do mapa para ver mais informações.
+  </div>
+  <div id="loading">
+    Carregando...
+  </div>
+
+  <div id="map-keys" class="heatmap">
+    <h3>Quantidade de áreas embargadas pelo IBAMA até Março/2018 na Amazônia Legal.</h3>
+    <div class="colors-heatmap">
+      <span class="red-1">1</span>
+      <span class="red-2"></span>
+      <span class="red-3"></span>
+      <span class="red-4"></span>
+      <span class="red-5">1988</span>
+    </div>
+  </div>
+
+  <div id="zoom-control">
+    <div class="zoom-in">+</div>
+    <div class="zoom-out">-</div>
+  </div>
+
+  <div id="map"></div>
+  <script src="js/areas.js"></script>
+</body>
+
+</html>
