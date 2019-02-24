@@ -33,7 +33,7 @@ var mapDiv = document.getElementById("map"),
     height = mapDiv.clientHeight;
 
 var heatColors = d3.scaleOrdinal()
-    .domain([3,100,203,402,806])
+    .domain([3,100,251,514,1036])
     .range([0.2, 0.4, 0.6, 0.8, 1])
 
 var projection = d3.geoMercator();
