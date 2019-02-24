@@ -301,6 +301,9 @@ rect.selection {
 .tooltip h5 {
     font-size: 12px;
     margin: 0 0 5px;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .tooltip span {
     font-weight: bold;
