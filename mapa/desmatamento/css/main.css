@@ -44,7 +44,9 @@ rect.selection {
     font-size: 14px;
     font-weight: 700;
 }
-
+.mark {
+    fill-opacity: 0.25;
+}
 .mark.selected {
     fill-opacity: 1;
 }
@@ -79,6 +81,7 @@ rect.selection {
     bottom: 5%;
     width: 95%;
     z-index: 99;
+    font-size: 12px;
 }
 #map-keys > div {
     display: block;
@@ -92,6 +95,11 @@ rect.selection {
 #map-keys h3 {
     font-size: 12px;
     font-weight: 300;
+}
+#map-keys .source {
+    margin-top: 8px;
+    float: left;
+    clear: both;
 }
 #map-keys .colors,
 #map-keys .colors-heatmap, {

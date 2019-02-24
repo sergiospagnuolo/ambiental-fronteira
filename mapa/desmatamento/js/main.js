@@ -88,6 +88,8 @@ var amazon,
 var zoomFactor = 0,
     loaded = false;
 
+var userAlreadyInteracted = false;
+
 d3.json("data/limite_amz_legal.json").then(function(geojson) {
     amazon = topojson.feature(geojson, geojson.objects.limite_amz_legal);
     draw();
@@ -109,6 +111,7 @@ map.on("mousedown touchstart", function() {
         map.selectAll(".mark").classed("selected", false);
     };
     selecting = true;
+    userAlreadyInteracted = true;
 
     map.append("rect")
         .attr("class", "selection")
@@ -303,6 +306,7 @@ function draw() {
         .attr("transform", function(d) {
             return "translate(" + projection([d.geometry.coordinates[0], d.geometry.coordinates[1]]) + ")";
         });
+    init();
 }
 
 window.addEventListener("resize", draw);
@@ -329,3 +333,18 @@ d3.select("#zoom-control .zoom-out").on("touchstart click", () => {
     d3.event.stopPropagation();
     zoomOut();
 });
+
+function init() {
+    if (userAlreadyInteracted) return;
+    map.selectAll(".mark").classed("selected", true);
+    map.selectAll(".mark.selected").each(function (d) {
+        result = parseFloat(areas[d.properties.Uf].current) + parseFloat(d.properties.Desm2016);
+        areas[d.properties.Uf].current = result.toFixed(2);
+    });
+    Object.keys(areas).forEach((key) => {
+        percentage = parseFloat(areas[key].current) / areas[key].total * 100;
+        document.querySelector("#" + key + " .progress").style.width = percentage.toFixed(2) + "%";
+        document.querySelector("#" + key + " .percentage").innerHTML = percentage.toFixed(0);
+        document.querySelector("#" + key + " .value").innerHTML = numberFormatter(parseFloat(areas[key].current), 2, ".", ",");
+    });
+}
